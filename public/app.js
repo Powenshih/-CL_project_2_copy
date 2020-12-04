@@ -142,7 +142,10 @@ function draw() {
     fill(255, 128, 82);
     noStroke();
     textAlign(CENTER, TOP);
-    text("↓↓↓ scroll down and move your mouse to see the deep ↓↓↓", 1000, 0);
+    text("↓↓↓ scroll down to enter the deep ↓↓↓", 1000, 5);
+    textSize(15);
+    textAlign(CENTER, BOTTOM);
+    text("Retouched and photoshoped by Po-Wen Shih for Connections Lab class, 2020 Fall. Background image by Mark Pernice for the article - Treasure and Turmoil in the Deep Sea, The New York Times", 1000, 2485);
 
 
     // Generate balls 
