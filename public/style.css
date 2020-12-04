@@ -103,3 +103,26 @@ button:hover {
     Top: 0;
     Left: 0;
 } */
+
+
+/* A media query that will apply specific style properties dependent on the width of the browser window */
+
+@media (max-width: 2000px) {
+    .canvas_img {
+        width: 360px;
+        margin-top: 20px;
+    }
+}
+
+
+/* @media(max-width:660px) {
+    .project_img {
+        width: 400px;
+    }
+    .project_desc {
+        width: 400px;
+    }
+    .project_page1 {
+        height: 600px;
+    }
+} */

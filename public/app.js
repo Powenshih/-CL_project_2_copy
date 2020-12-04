@@ -123,6 +123,12 @@ function windowResized() {
 
 function draw() {
 
+    textSize(30);
+    fill(255, 128, 82);
+    noStroke();
+    textAlign(CENTER, TOP);
+    text("test", 1000, 200);
+
     background(0);
 
     //dots at the four corner as boundry
