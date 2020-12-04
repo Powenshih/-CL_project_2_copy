@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <title>A progect working with p5 object oriented coding + socket</title>
+
+</head>
+
+<body>
+
+    <!-- <button id="modalBtn" class="intro">GET ME TO THE DEEP</button>
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <p>Hello... I am a modal</p>
+        </div>
+    </div> -->
+
+    <div class="main-container ">
+        <div class="theme-container">
+
+            <h1 id="theme-title">E N T E R I N G<br>T H E *D E E P</h1>
+            <p id="theme-desc">A place of cold and hot, dark and high pressure. What is it like to be in the deep? Is it possible to get there? I asked myself. In fact, More people have traveled into space than have traveled to the deep ocean realm...
+            </p>
+
+        </div>
+
+        <div class="game-container">
+            <div class="game-level">
+
+                <div class="game-button" id="game-button">
+                    <button id="team-play"> GO! </button>
+                    <button id="versus-play"> place holder </button>
+                </div>
+
+                <div class="game-msg" id="game-msg">
+                    <div class="level-msg" id="level-msg">Show me the way!</div>
+                    <div class="new-msg" id="new-msg"></div>
+                    <span id="score1"></span>
+                    <span id="scoreNum"></span>
+                    <span id="score3"></span>
+                </div>
+
+                <div class="level-chat" id="level-chat">
+                    <input class="send-input" id="send-input" placeholder="YOUR MESSAGE" />
+                    <button class="send-button" id="send-button"> SEND </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- <script src="main.js "></script> -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js "></script>
+    <!-- if we have a seperate ball.js -->
+    <!-- <script src=“ball.js”></script> -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>
