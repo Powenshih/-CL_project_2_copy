@@ -70,19 +70,22 @@ socket.on('newMsg', (data) => {
     console.log(data);
 })
 
+// // B3 spotlight interaction
+// socket.on('spotData', () => {
+//     spotlight(mouseX, mouseY);
+
+// })
+
+// A3 once a ball got removed
 socket.on('removeData', () => {
-    console.log(balls)
+    // console.log(balls)
     for (let k = 0; k < balls.length; k++) {
-        // if (ball.contains(mouseX, mouseY)) {
-        //     ball[k].changeColor();
-        // }
         balls[k].swell();
         setTimeout(function() {
             balls[k].shrink();
         }, 250);
     }
-})
-
+});
 
 function setup() {
     createCanvas(2000, 2500);
@@ -138,9 +141,6 @@ function draw() {
     ellipse(20, 2480, 20);
     ellipse(1980, 20, 20);
 
-    // spot light feature
-    // createBlurredEllipse(mouseX - 25, mouseY - 25, 50, 50);
-
     // // Glow on the background image - glow follow mouse
     spotlight(mouseX, mouseY);
 
@@ -148,10 +148,10 @@ function draw() {
     fill(255, 128, 82);
     noStroke();
     textAlign(CENTER, TOP);
-    text("↓↓↓ scroll down to enter the deep ↓↓↓", 1000, 5);
+    text("↓↓↓ Are you ready? Scroll down to enter the deep! ↓↓↓", 1000, 5);
     textSize(15);
     textAlign(CENTER, BOTTOM);
-    text("Retouched and photoshoped by Po-Wen Shih for Connections Lab class, 2020 Fall. Background image by Mark Pernice for the article - Treasure and Turmoil in the Deep Sea, The New York Times", 1000, 2485);
+    text("Background image by Mark Pernice for the article - Treasure and Turmoil in the Deep Sea, The New York Times. Retouched and photoshoped by Po-Wen Shih for Connections Lab class project 3, 2020 Fall.", 1000, 2485);
 
 
     // Generate balls 
@@ -171,42 +171,32 @@ function draw() {
 
         // Conditions for starting game instruction where to find the balls
         if (readytoplay && balls.length >= 20) {
-            textSize(50);
+            textSize(25);
             fill(255, 128, 82);
             noStroke();
             textAlign(CENTER);
-            text("NAVIGATE TO FIND BALLS", 1000, 1000);
+            text("Bubbles are in our way! Drag your mouse to clean the ocean", 1000, 1000);
         }
 
         // In game remider to encourage to finish the game
         if (balls.length <= 6 && balls.length >= 3) {
-            textSize(50);
+            textSize(25);
             fill(255, 128, 82);
             noStroke();
             textAlign(CENTER);
-            text("WE ARE ALMOST THERE!", 1000, 1000);
+            text("You are making a path entering the deep!", 1000, 1000);
         }
     }
 
     // Finish game prompt when balls are left less than three
     if (balls.length < 3 && readytoplay) {
-        textSize(50);
-        fill(200);
+        textSize(25);
+        fill(255, 128, 82);
         noStroke();
         textAlign(CENTER);
-        text("YOU BRING US TO THE HYDROTHERMAL VENT!", 1000, 1000);
+        text("We got to the deep! The deep has gotten cleaner", 1000, 1000);
     }
 };
-
-// // spot light feature
-// function createBlurredEllipse(x, y, width, height) {
-//     let img2 = createGraphics(width + 2, height + 2);
-//     img2.noStroke();
-//     img2.fill(255, 255, 255, 100);
-//     img2.ellipse(width / 2, height / 2, width, height);
-//     image(img2, x, y);
-//     filter(BLUR, 6);
-// }
 
 // // Glow on the background image
 function spotlight(x, y) {
@@ -219,8 +209,10 @@ function spotlight(x, y) {
             // console.log(colour);
             noStroke();
             ellipse(x + r * cos(theta), y + r * sin(theta), 15, 15);
-
         }
+        // // B1 there will another socket emit enable spotlight interaction
+        // socket.emit('spotData');
+        // console.log('spotdata');
     }
 }
 
@@ -244,7 +236,7 @@ function mouseDragged() {
             // for the two games this can be different
             socket.emit('gameData', data);
 
-            // 1 there will another socket emit ...
+            // A1 there will another socket emit enable bubble interaction
             socket.emit('removeData');
         }
     }
@@ -258,26 +250,26 @@ function removeBalls(data) {
 
 // my ball DNA(class)
 class Ball {
-    // constructor(x, y, r, xspeed, yspeed) {
+    // constructor(x, y, r, xspeed, yspeed)
     constructor(x, y, r) {
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        this.a = random(255);
-        this.brightness = random(100, 200);
-        this.strokeR = 255;
-        this.strokeG = 255;
-        this.strokeB = 255;
-        this.strokeA = random(255);
-        this.strokeWeight = 0;
-        // this.removal = removal;
-        // this.xspeed = xspeed;
-        // this.yspeed = yspeed;
-    }
-
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.a = random(255);
+            this.brightness = random(100, 200);
+            this.strokeR = 255;
+            this.strokeG = 255;
+            this.strokeB = 255;
+            this.strokeA = random(255);
+            this.strokeWeight = 0;
+            // this.removal = removal;
+            // this.xspeed = xspeed;
+            // this.yspeed = yspeed;
+        }
+        // mouse interactions
     swell() {
         this.a += 50;
-        this.r += 5;
+        this.r += 11;
         this.strokeWeight += random(10);
         this.strokeR -= random(255);
         this.strokeG -= random(100);
@@ -288,7 +280,7 @@ class Ball {
 
     shrink() {
         this.a -= 50;
-        this.r -= 5;
+        this.r -= 10;
         this.strokeWeight = 0;
         this.strokeR = 255;
         this.strokeG = 255;
@@ -299,7 +291,7 @@ class Ball {
     }
 
     show() {
-        console.log('show balls');
+        // console.log('show balls');
         stroke(this.strokeR, this.strokeG, this.strokeB, this.strokeA);
         strokeWeight(this.strokeWeight);
         fill(this.brightness, this.a);

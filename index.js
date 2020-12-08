@@ -61,7 +61,8 @@ io.sockets.on('connect', (socket) => {
     socket.on('newMsg', (data) => {
         // io.to(socket.levelData).emit('newMsg', data);
         io.sockets.emit('newMsg', data);
-        messages[socket.levelData].push(data.message);
+        messages[socket.levelData] = data.message;
+        console.log(socket)
         console.log(messages);
     });
 
@@ -81,36 +82,44 @@ io.sockets.on('connect', (socket) => {
         console.log("A client has disconnected : " + socket.id);
     });
 
-    // 2 additional socket.on and io.sockets.emit('just the name')
+    // // B2 bubble interaction - additional socket.on and io.sockets.emit('just the name')
+    // socket.on('spotData', () => {
+    //     io.sockets.emit('spotData')
+    // });
+
+    // A2 bubble interaction - additional socket.on and io.sockets.emit('just the name')
     socket.on('removeData', () => {
         io.sockets.emit('removeData')
-    })
+    });
+
+
+
 });
 
 
 
 // JONING BALL DATA
 let joinBall = [
-    { x: 10, y: 34, r: 50 },
+    { x: 10, y: 200, r: 50 },
     { x: 200, y: 522, r: 80 },
     { x: 187, y: 15, r: 120 },
-    { x: 203, y: 148, r: 60 },
-    { x: 568, y: 595, r: 250 },
-    { x: 400, y: 666, r: 70 },
-    { x: 300, y: 102, r: 12 },
-    { x: 25, y: 600, r: 200 },
-    { x: 200, y: 500, r: 125 },
+    { x: 203, y: 148, r: 75 },
+    { x: 450, y: 650, r: 145 },
+    { x: 200, y: 700, r: 115 },
+    { x: 300, y: 102, r: 30 },
+    { x: 25, y: 700, r: 200 },
+    { x: 377, y: 500, r: 125 },
     { x: 357, y: 459, r: 75 },
-    { x: 481, y: 50, r: 45 },
-    { x: 300, y: 431, r: 150 },
-    { x: 500, y: 200, r: 250 },
-    { x: 420, y: 300, r: 45 },
+    { x: 481, y: 50, r: 50 },
+    { x: 300, y: 600, r: 95 },
+    { x: 500, y: 200, r: 175 },
+    { x: 420, y: 300, r: 60 },
     { x: 100, y: 100, r: 100 },
-    { x: 50, y: 100, r: 45 },
-    { x: 500, y: 501, r: 150 },
+    { x: 50, y: 300, r: 90 },
+    { x: 600, y: 650, r: 80 },
     { x: 311, y: 123, r: 75 },
-    { x: 345, y: 635, r: 150 },
-    { x: 400, y: 435, r: 210 }
+    { x: 345, y: 635, r: 115 },
+    { x: 600, y: 435, r: 180 }
 ];
 
 // let randomXspeed = Math.floor(Math.random() * (1 - (-1)));

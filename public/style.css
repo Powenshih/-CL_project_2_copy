@@ -2,12 +2,12 @@ body {
     padding: 20px 50px;
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
-    color: coral;
+    color: rgb(255, 127, 80);
 }
 
 .main-container {
-    margin-bottom: 50px;
     width: 100%;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -17,7 +17,7 @@ body {
 
 .theme-container {
     min-width: 500px;
-    width: 45%;
+    width: 52%;
     display: inline-block;
 }
 
@@ -41,8 +41,17 @@ body {
 
 .game-container {
     margin: 30px;
-    width: 45%;
+    width: 40%;
     min-width: 500px;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 128, 82);
+    padding: 50px;
+    font-size: 20px;
 }
 
 button {
@@ -64,7 +73,7 @@ button:hover {
 
 #game-msg {
     font-size: 20px;
-    color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
 }
 
 #send-input {
@@ -86,7 +95,7 @@ button:hover {
 }
 
 #scoreNum {
-    color: rgb(4, 218, 218);
+    color: white;
     font-size: 50px;
 }
 
@@ -107,10 +116,10 @@ button:hover {
 
 /* A media query that will apply specific style properties dependent on the width of the browser window */
 
-@media (max-width: 2000px) {
-    .canvas_img {
-        width: 360px;
-        margin-top: 20px;
+@media (max-width: 50%) {
+    .canvas-img {
+        min-width: 500px;
+        /* margin-top: 20px; */
     }
 }
 
