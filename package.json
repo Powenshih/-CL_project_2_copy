@@ -16,5 +16,8 @@
         "url": "https://github.com/Powenshih/-CL_project_3/issues"
     },
     "homepage": "https://github.com/Powenshih/-CL_project_3#readme",
-    "description": ""
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^2.3.0"
+    }
 }

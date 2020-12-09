@@ -22,11 +22,11 @@ socket.on('connect', () => {
 
 window.addEventListener('load', () => {
     document.getElementById('team-play').addEventListener('click', () => {
-        joinLevel('team-play');
-    })
-    document.getElementById('versus-play').addEventListener('click', () => {
-        joinLevel('versus-play');
-    })
+            joinLevel('team-play');
+        })
+        // document.getElementById('versus-play').addEventListener('click', () => {
+        //     joinLevel('versus-play');
+        // })
 
     //when user types a new message and "sends" it
     let sendbutton = document.getElementById('send-button');
@@ -63,7 +63,7 @@ socket.on('levelMsg', (data) => {
 })
 
 socket.on('newMsg', (data) => {
-    document.getElementById('new-msg').innerHTML = "";
+    // document.getElementById('new-msg').innerHTML = "";
     let elt2 = document.createElement('p');
     elt2.innerHTML = data.message;
     document.getElementById('new-msg').appendChild(elt2);
@@ -83,7 +83,7 @@ socket.on('removeData', () => {
         balls[k].swell();
         setTimeout(function() {
             balls[k].shrink();
-        }, 250);
+        }, 500);
     }
 });
 
@@ -148,10 +148,10 @@ function draw() {
     fill(255, 128, 82);
     noStroke();
     textAlign(CENTER, TOP);
-    text("↓↓↓ Are you ready? Scroll down to enter the deep! ↓↓↓", 1000, 5);
+    text("↓↓↓ Let's go! ↓↓↓", 1000, 5);
     textSize(15);
     textAlign(CENTER, BOTTOM);
-    text("Background image by Mark Pernice for the article - Treasure and Turmoil in the Deep Sea, The New York Times. Retouched and photoshoped by Po-Wen Shih for Connections Lab class project 3, 2020 Fall.", 1000, 2485);
+    text("Background image by Mark Pernice for the article - Treasure and Turmoil in the Deep Sea, The New York Times. Retouched and photoshopped by Po-Wen Shih for Connections Lab class project 3, 2020 Fall.", 1000, 2485);
 
 
     // Generate balls 
@@ -175,7 +175,7 @@ function draw() {
             fill(255, 128, 82);
             noStroke();
             textAlign(CENTER);
-            text("Bubbles are in our way! Drag your mouse to clean the ocean", 1000, 1000);
+            text("Bubbles are in our way! Drag your mouse to clean the ocean", 1000, 500);
         }
 
         // In game remider to encourage to finish the game
@@ -184,17 +184,17 @@ function draw() {
             fill(255, 128, 82);
             noStroke();
             textAlign(CENTER);
-            text("You are making a path entering the deep!", 1000, 1000);
+            text("We are getting there, keep going!", 1000, 1500);
         }
     }
 
     // Finish game prompt when balls are left less than three
     if (balls.length < 3 && readytoplay) {
-        textSize(25);
+        textSize(50);
         fill(255, 128, 82);
         noStroke();
         textAlign(CENTER);
-        text("We got to the deep! The deep has gotten cleaner", 1000, 1000);
+        text("You bring us to the deep sea!!!", 1000, 2000);
     }
 };
 

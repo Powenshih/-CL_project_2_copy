@@ -14,60 +14,64 @@
 
 <body>
 
-    <!-- <button id="modalBtn" class="intro">GET ME TO THE DEEP</button>
-    <div id="simpleModal" class="modal">
-        <div class="modal-content">
-            <span class="closeBtn">&times;</span>
-            <p>Hello... I am a modal</p>
-        </div>
-    </div> -->
-
     <div class="main-container ">
-        <div class="theme-container">
 
-            <h1 id="theme-title">E N T E R I N G<br><span>T H E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D E E P</h1>
-            <p id="theme-desc">A place of cold and hot, dark and high pressure. What is it like to be in the deep? Is it possible to get there? I asked myself. In fact, More people have traveled into space than have traveled to the deep ocean realm...
-            </p>
+        <div class="theme-container">
+            <h1 id="theme-title">E N T E R I N G<br><span></span>T H E&nbsp;*D E E P</h1>
+            <p id="project-desc">By Po-Wen Shih IMA Low Res<br>A web game combines Connections Lab and Critical Experience Studio, Fall 2020</p>
 
         </div>
 
         <div class="game-container sticky">
-            <div class="game-level">
 
-                <div class="game-button" id="game-button">
-                    <button id="team-play"> GO! </button>
-                    <button id="versus-play"> place holder </button>
+
+
+
+            <div class="level-chat">
+                <input id="send-input" placeholder="my message to other players" />
+                <button id="send-button">SEND</button>
+            </div>
+            <div class="game-msg">
+                <div id="new-msg"></div>
+
+
+                <div id="level-msg">- Scroll down then click "PLAY" -</div>
+
+                <div class="game-button">
+                    <button id="team-play">PLAY</button>
+                    <!-- <button id="versus-play"> place holder </button> -->
                 </div>
 
-                <div class="game-msg" id="game-msg">
-                    <div class="level-msg" id="level-msg">Scroll down first</div>
-                    <div class="new-msg" id="new-msg"></div>
+                <div class="score-msg">
                     <span id="score1"></span>
-                <span id="scoreNum"></span>
-                <span id="score3"></span>
+                    <span id="scoreNum"></span>
+                    <span id="score3"></span>
+                </div>
+            </div>
         </div>
 
-        <div class="level-chat" id="level-chat">
-            <input class="send-input" id="send-input" placeholder="YOUR MESSAGE" />
-            <button class="send-button" id="send-button"> SEND </button>
+        <div class="canvas-container">
+            <img class="canvas-img" src="Treasure_and_Turmoil_2000x2500_bw.jpg" alt="Treasure_and_Turmoil_illustration_by_Mark_Pernice" />
         </div>
 
+        <div class="credits-container">
+            <p id="thank-you">- Thank You -<br> Connections Lab - Craig & Mathura<br>Critical Experience Studios - Sarah & Marina<br> p5.js support - Ellen and Carrie<br><br>- Special Thank You -<br> Ruta and Mathura for endless production support in web development and
+                socket!!!
+                <br><br>You can find me @ ps4129@nyu.edu
+            </p>
+        </div>
     </div>
 
-    </div>
 
-    <div class="canvas-container">
-        <img class="canvas-img" src="Treasure_and_Turmoil_2000x2500_bw.jpg" alt="Treasure_and_Turmoil_illustration_by_Mark_Pernice" />
 
-    </div>
-
-    </div>
     <!-- <script src="main.js "></script> -->
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js "></script>
     <!-- if we have a seperate ball.js -->
     <!-- <script src=“ball.js”></script> -->
     <script src="app.js"></script>
+
+
 
 </body>
 

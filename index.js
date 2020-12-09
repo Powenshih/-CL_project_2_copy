@@ -7,13 +7,12 @@ let scores = 0;
 // instructional msg for levels
 let messages = {
     "team-play": [
-        "Great choice!, Here is how to play the game:",
-        "Simply dragged you mouse and clear the balls to get to THE DEEP.",
-    ],
-    "versus-play": [
-        "Wow, you have advanced!, Here is how to play the game:",
-        "Dragged and clear the balls to get to THE DEEP, Press GIFT button to add balls to opponents' canvas"
-    ]
+            "A place of cold and hot, dark and high pressure. What is it like to be in the deep? Is it possible to get there? I asked myself. In fact, More people have traveled into space than have traveled to the deep ocean realm..."
+        ]
+        // "versus-play": [
+        //     "Wow, you have advanced!, Here is how to play the game:",
+        //     "Dragged and clear the balls to get to THE DEEP, Press GIFT button to add balls to opponents' canvas"
+        // ]
 }
 
 app.use('/', express.static('public'));
@@ -45,9 +44,9 @@ io.sockets.on('connect', (socket) => {
         // JOINING MESSAGE DATA
         let messageData = {
             "messages": messages[levelData],
-            "score1": "Great, together you have cleared",
+            "score1": "You just made the ocean",
             "score2": scores,
-            "score3": "balls, you are getting closer to the deep!",
+            "score3": "times cleaner!",
         };
         socket.emit('levelMsg', messageData); // send the data only to this client
 
